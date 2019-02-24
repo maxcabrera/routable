@@ -113,7 +113,7 @@ const IssueCard = (props) => {
   return (
     <IssueCardWrapper>
       <div className="repo-avatar">
-        <span>{issue.rank}</span>
+        <span>{issue.number}</span>
         {issue.assignee
         && <img src={issue.assignee.avatar_url} alt={`Issue assigned to ${issue.assignee.login}`} />}
       </div>

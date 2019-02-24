@@ -28,7 +28,7 @@ export function openIssues(repo) {
 
       const token = getState().user.token
       const issuesData = await axios.get(`${github.GET_ISSUES_URL}/${repo.owner.login}/${repo.name}/issues?access_token=${token}`)
-      let issues = issuesData.data.map(issue => {
+      let issues = issuesData.data.map((issue, index) => {
 
         let assignee = (issue.assignee) ? {
           login: issue.assignee.login,
@@ -39,7 +39,7 @@ export function openIssues(repo) {
         return {
           id: issue.id,
           html_url: issue.html_url,
-          number: issue.number,
+          number: index + 1,
           title: issue.title,
           state: issue.state,
           created_at: issue.created_at,

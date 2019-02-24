@@ -35,7 +35,11 @@ const Dashboard = (props) => {
       {issues.repoSelected
       && <RepoTitle title={issues.repoName} clearRepoSelection={issuesActions.clearRepoSelected}/>}
 
-      <Issues/>
+      {issues.repoSelected
+      && <Issues issues={issues.issues[issues.repoSelected]}/>}
+
+      {issues.repoSelected && issues.issues[issues.repoSelected].length < 1 && 'No issues'}
+
     </div>
   )
 }
