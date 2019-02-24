@@ -43,7 +43,7 @@ BreadCrumbs.propTypes = {
   })).isRequired
 }
 
-BreadCrumbs.defaultProptypes = {
+BreadCrumbs.defaultProps = {
   paths:[{title: 'Home'}]
 }
 

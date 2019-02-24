@@ -10,10 +10,7 @@ class App extends Component {
       <div className="App">
         <Header title="Issues Management System" />
         <LoginForm sendToken={() => {}}/>
-        <BreadCrumbs paths={[
-        { title: 'Repos'},
-        { title: 'This is the repo #1'}
-          ]}/>
+        <BreadCrumbs />
       </div>
     );
   }
