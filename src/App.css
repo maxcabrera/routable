@@ -34,8 +34,10 @@ code {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.a,
+a:visited,
+a:hover {
+  color: #3056ba;
 }
 
 @keyframes App-logo-spin {

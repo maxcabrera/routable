@@ -49,9 +49,14 @@ const ReporCardWrapper = styled.section`
     
     button {
       margin:5px 5px 0 0;
-      //height: 40px;
       padding: 0;
       
+    }
+  }
+  
+  @media (min-width: 960px) {
+    .repo-go {
+      width:60px;  
     }
   }
 `

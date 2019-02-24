@@ -49,7 +49,7 @@ Issues.propTypes = {
       PropTypes.shape({
         login: PropTypes.string,
         avatar_url: PropTypes.string,
-        url: PropTypes.string,
+        html_url: PropTypes.string,
       }),
     ]),
   })).isRequired
@@ -67,7 +67,7 @@ Issues.defaultProps = {
         login: "extrabright",
         id: 38554814,
         avatar_url: "https://avatars2.githubusercontent.com/u/38554814?v=4",
-        url: "https://api.github.com/users/extrabright",
+        html_url: "https://github.com/extrabright",
       },
     },
     {
@@ -80,7 +80,7 @@ Issues.defaultProps = {
         login: "extrabright",
         id: 38554814,
         avatar_url: "https://avatars2.githubusercontent.com/u/38554814?v=4",
-        url: "https://api.github.com/users/extrabright",
+        html_url: "https://github.com/extrabright",
       },
     }
     ]

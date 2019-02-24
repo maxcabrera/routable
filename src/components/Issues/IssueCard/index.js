@@ -13,36 +13,34 @@ const IssueCardWrapper = styled.section`
     border-bottom: none;
   }
   
-  .position-tool {
-    box-sizing: border-box;
-    width:20%
-    max-width: 50px;
-    background: #C7DDFF;
-    padding:4px;
-    border-radius:10px;
-  }
+  
   
   .repo-avatar {
-    width:12%;
+    width: 44px;
+    box-sizing: border-box;
     
     span { 
-      background: #C7DDFF;
-      padding:10px;
-      border-radius:30%;
-      margin-top: 0;
+      box-sizing: border-box;
+      background: rgba(60,74,136,1);
+      height:30px;
+      width:30px;
+      padding-top: 5px;
+      border-radius:50%;
       display: block;
+      color: #fff;
+      margin: 5px auto 0 auto;
     }
     
     img {
       width: 40px;
-      border-radius: 10px;
+      margin-left: 5px;
       margin-top: 5px;
     }
   }
  
   
   .repo-info {
-    flex-grow:2;
+    width:100%
     padding-left: 10px;
     text-align: left;
     h1 {
@@ -52,8 +50,58 @@ const IssueCardWrapper = styled.section`
     }
     small {
       display: block;
+      margin-bottom:3px;
     }
   }
+  
+  .position-tool {
+    box-sizing: border-box;
+    width: 60px;
+    padding:4px;
+    border-radius:10px;
+  }
+  
+  .triangle-up {
+      width: 0;
+      height: 0;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-bottom: 36px solid #3056ba;
+  }
+  
+  .triangle-down:hover,
+  .triangle-up:hover {
+    cursor: pointer
+  }
+    
+  .triangle-down {
+      width: 0;
+      height: 0;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-top: 36px solid #3056ba;
+  } 
+  
+  @media (min-width: 960px) {
+    .triangle-up {
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 20px solid #3056ba;
+    }
+    
+    .triangle-down {
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 20px solid #3056ba;
+    }
+    
+  }
+  
+   
 `
 
 const IssueCard = (props) => {
@@ -67,23 +115,26 @@ const IssueCard = (props) => {
       <div className="repo-avatar">
         <span>{issue.rank}</span>
         {issue.assignee
-        && <img src={issue.assignee.avatar_url} />}
+        && <img src={issue.assignee.avatar_url} alt={`Issue assigned to ${issue.assignee.login}`} />}
       </div>
       <div className="repo-info">
         <h1>{issue.title}</h1>
         <small>Created: {createdAt}</small>
         <small>Last update: {updatedAt}</small>
         {!issue.assignee && <small>Issue not assigned</small>}
+        {issue.assignee && <small>Issue assigned to <a href={issue.assignee.html_url} target="_blank">{issue.assignee.login}</a> </small>}
       </div>
       <div className="position-tool">
-        <div onClick={(e) => {
-          e.preventDefault()
-          moveUp(issue.id)
-        }}>⬆️️</div>️
-        <div onClick={(e) => {
-          e.preventDefault()
-          moveDown(issue.id)
-        }}>⬇️</div>
+        <div className="triangle-up"
+          onClick={(e) => {
+            e.preventDefault()
+            moveUp(issue)
+        }}></div>️
+        <div className="triangle-down"
+          onClick={(e) => {
+            e.preventDefault()
+            moveDown(issue)
+        }}></div>️
       </div>
     </IssueCardWrapper>
   )
@@ -114,7 +165,7 @@ IssueCard.protTypes = {
       PropTypes.shape({
         login: PropTypes.string,
         avatar_url: PropTypes.string,
-        url: PropTypes.string,
+        html_url: PropTypes.string,
       }),
     ]),
   }).isRequired
