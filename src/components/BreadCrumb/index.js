@@ -44,7 +44,7 @@ BreadCrumbs.propTypes = {
 }
 
 BreadCrumbs.defaultProptypes = {
-
+  paths:[{title: 'Home'}]
 }
 
 export default BreadCrumbs
