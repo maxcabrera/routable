@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import moment from 'moment'
 
 const IssueCardWrapper = styled.section`
   display:flex;
@@ -125,8 +126,8 @@ const IssueCard = (props) => {
       </div>
       <div className="repo-info">
         <h1>{issue.title}</h1>
-        <small>Created: {createdAt}</small>
-        <small>Last update: {updatedAt}</small>
+        <small>Created: {new Date(createdAt).toLocaleDateString('en-US')}</small>
+        <small>Last update: {moment(updatedAt).fromNow()}</small>
         {!issue.assignee && <small>Issue not assigned</small>}
         {issue.assignee && <small>Issue assigned to <a href={issue.assignee.html_url} target="_blank" rel="noopener noreferrer">{issue.assignee.login}</a> </small>}
       </div>
