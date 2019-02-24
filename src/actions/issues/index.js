@@ -68,6 +68,49 @@ export function clearRepoSelected() {
   }
 }
 
-export function moveIssueUp(){
+export function moveUp(issue){
+  return (dispatch, getState) => {
+    let repoToModify = getState().issues.repoSelected
+    let issues = getState().issues.issues[repoToModify]
+    let index = issues.findIndex((iss) => {
+      return issue.id === iss.id
+    })
+    if(index > 0) {
+      let temp = issues[index - 1]
+      issues[index - 1] = issue
+      issues[index] = temp
 
+      dispatch({
+        type: actions.ISSUES.MOVE_ISSUE_UP,
+        payload: {
+          repoId: repoToModify,
+          issues: issues,
+        }
+      })
+    }
+  }
+}
+
+export function moveDown(issue){
+  return (dispatch, getState) => {
+    let repoToModify = getState().issues.repoSelected
+    let issues = getState().issues.issues[repoToModify]
+    let index = issues.findIndex((iss) => {
+      return issue.id === iss.id
+    })
+    if(index < issues.length - 1) {
+      let temp = issues[index + 1]
+      issues[index + 1] = issue
+      issues[index] = temp
+
+      dispatch({
+        type: actions.ISSUES.MOVE_ISSUE_DOWN,
+        payload: {
+          repoId: repoToModify,
+          issues: issues,
+        }
+      })
+    }
+
+  }
 }

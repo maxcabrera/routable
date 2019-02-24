@@ -13,6 +13,7 @@ store.subscribe(throttle(() => {
     user: store.getState().user,
     repos: store.getState().repos,
     errors: store.getState().errors,
+    issues: store.getState().issues,
   })
 },1000))
 

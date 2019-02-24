@@ -16,7 +16,6 @@ const ReposWrapper = styled.section`
 
 const Repos = (props) => {
   const { repos, openIssues } = props
-  console.log('repos')
 
   const listOfRepos = repos.map(repo => {
     return <RepoCard key={repo.id} openIssues={openIssues} repo={repo}/>

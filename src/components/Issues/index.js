@@ -13,10 +13,16 @@ const IssuesWrapper = styled.section`
 `
 
 const Issues = (props) => {
-  const { issues } = props
+  const { issues, moveDown, moveUp } = props
 
   const listOfIssues = issues.map((issue, index) => {
-    return <IssueCard key={issue.id} position={index + 1} issue={issue}/>
+    return <IssueCard
+      key={issue.id}
+      position={index + 1}
+      issue={issue}
+      moveUp={moveUp}
+      moveDown={moveDown}
+    />
   })
 
   return (
@@ -27,6 +33,8 @@ const Issues = (props) => {
 }
 
 Issues.propTypes = {
+  moveUp: PropTypes.func,
+  moveDown: PropTypes.func,
   issues: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     rank: PropTypes.number,

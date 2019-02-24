@@ -26,9 +26,16 @@ const Dashboard = (props) => {
     reposActions.getRepos()
   }
 
+  let breadCrumbPath =[]
+  if(issues.repoSelected) {
+    breadCrumbPath = [{ title: 'Repos' }, { title: issues.repoName }]
+  } else {
+    breadCrumbPath = [{ title: 'Repos' }]
+  }
+
   return (
     <div>
-      <BreadCrumbs />
+      <BreadCrumbs paths={breadCrumbPath} />
       {!issues.repoSelected
       && <Repos repos={repos.repos} openIssues={issuesActions.openIssues}  />}
 
@@ -36,7 +43,11 @@ const Dashboard = (props) => {
       && <RepoTitle title={issues.repoName} clearRepoSelection={issuesActions.clearRepoSelected}/>}
 
       {issues.repoSelected
-      && <Issues issues={issues.issues[issues.repoSelected]}/>}
+      && <Issues
+        issues={issues.issues[issues.repoSelected]}
+        moveUp={issuesActions.moveUp}
+        moveDown={issuesActions.moveDown}
+      />}
 
       {issues.repoSelected && issues.issues[issues.repoSelected].length < 1 && 'No issues'}
 
