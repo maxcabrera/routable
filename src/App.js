@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 
 import * as userActions from './actions/user'
 import * as reposActions from './actions/repos'
+import * as issuesActions from './actions/issues'
 
 import './App.css';
 import Header from './components/Header'
@@ -14,7 +15,7 @@ import Issues from './components/Issues'
 import RepoTitle from './components/RepoTitle'
 
 const Dashboard = (props) => {
-  const { user, repos, reposActions } = props
+  const { user, repos, reposActions, issuesActions } = props
   if(user.authenticated && !repos.fetched) {
     reposActions.getRepos()
   }
@@ -22,7 +23,7 @@ const Dashboard = (props) => {
   return (
     <div>
       <BreadCrumbs />
-      <Repos repos={repos.repos} />
+      <Repos repos={repos.repos} openIssues={issuesActions.openIssues}  />
       <RepoTitle title="Repo # 1"/>
       <RepoTitle title="Repo # 2" clearRepoSelection={()=>{ console.log('hola')}}/>
       <Issues/>
@@ -60,7 +61,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     userActions: bindActionCreators(userActions, dispatch),
-    reposActions: bindActionCreators(reposActions, dispatch)
+    reposActions: bindActionCreators(reposActions, dispatch),
+    issuesActions: bindActionCreators(issuesActions, dispatch),
   }
 }
 
