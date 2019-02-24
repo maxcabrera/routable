@@ -26,13 +26,19 @@ const LoginWrapper = styled.section`
 
 const LoginForm = (props) => {
   const { sendToken, tokenValue, updateInput } = props
+
+  function upInput(e) {
+    e.preventDefault()
+    let value = e.target.value
+    updateInput(value)
+  }
   return (
     <LoginWrapper>
       <h1>Welcome</h1>
       <p>Enter github token</p>
       <input
         value={tokenValue}
-        onChange={updateInput}
+        onChange={upInput}
         type="text" name="token" />
       <Button onClick={
         (e) => {

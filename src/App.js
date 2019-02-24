@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
+import * as userActions from './actions/user'
+
 import './App.css';
 import Header from './components/Header'
 import LoginForm from './components/LoginForm'
@@ -24,12 +26,19 @@ const Dashboard = (props) => {
 
 class App extends Component {
   render() {
-    const { user } = this.props
+    const { user, userActions } = this.props
 
     return (
       <div className="App">
         <Header title="Issues Management System" />
-        {!user.authenticated && <LoginForm sendToken={() => {}} />}
+        {!user.authenticated
+          && <LoginForm
+              tokenValue={user.token}
+              updateInput={userActions.enterToken}
+              sendToken={(e) => {
+                console.log('hello')
+              }} />}
+
         {user.authenticated && <Dashboard />}
       </div>
     );
@@ -42,4 +51,10 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(App);
+function mapDispatchToProps(dispatch) {
+  return {
+    userActions: bindActionCreators(userActions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

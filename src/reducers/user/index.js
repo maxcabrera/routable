@@ -8,7 +8,10 @@ const initialState = {
 const UserReducer = (state = initialState, action) => {
   switch (action.type){
     case actions.USER.ENTER_TOKEN:
-      return state
+      return {
+        ...state,
+        token: action.payload,
+      }
     case actions.USER.SEND_TOKEN:
       return state
     default:
