@@ -12,14 +12,18 @@ export function openIssues(repo) {
         found = true
         dispatch({
           type: actions.ISSUES.UPDATE_ISSUES,
-          payload: { issues: issuesInApp[repo.id], repoSelected: repo.id},
+          payload: {
+            issues: issuesInApp[repo.id],
+            repoSelected: repo.id,
+            repoName: repo.name
+          },
         })
       }
     }
+
     if(!found) {
       dispatch({
         type: actions.ISSUES.FETCHING_ISSUES,
-        payload: { repo: repo.name }
       })
 
       const token = getState().user.token
@@ -49,7 +53,10 @@ export function openIssues(repo) {
 
       dispatch({
         type: actions.ISSUES.UPDATE_ISSUES,
-        payload: { issues, repoSelected: repo.id},
+        payload: {
+          issues,
+          repoSelected: repo.id,
+          repoName: repo.name },
       })
     }
   }

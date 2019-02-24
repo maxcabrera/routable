@@ -32,8 +32,9 @@ console.log('issues', issues)
       {!issues.repoSelected
       && <Repos repos={repos.repos} openIssues={issuesActions.openIssues}  />}
 
-      <RepoTitle title="Repo # 1"/>
-      <RepoTitle title="Repo # 2" clearRepoSelection={()=>{ console.log('hola')}}/>
+      {issues.repoSelected
+      && <RepoTitle title={issues.repoName} clearRepoSelection={()=>{ console.log('hola')}}/>}
+
       <Issues/>
     </div>
   )
