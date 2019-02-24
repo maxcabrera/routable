@@ -1,37 +1,57 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import Button from '../../Button'
 
 const ReporCardWrapper = styled.section`
   display:flex;
+  align-content: flex-start;
   box-sizing: border-box;
   flex-direction: row;
   border-bottom: 3px solid white;
+  height: 80px;
   
   &:last-child {
     border-bottom: none;
   }
   
   &:hover {
-    cursor: pointer;
     background-color: #C7DDFF;
   }
   
-  img {
-    width: 100%;
-  }
+  
   
   .repo-avatar {
-    flex-basis: 20%;
+    width: 60px;
+    box-sizing: border-box;
+    
+    img {
+      width: 40px;
+      margin-left: 5px;
+      margin-top: 16px;
+    }
   }
   
   .repo-info {
     padding-left: 10px;
     text-align: left;
+    width:100%;
     h1 {
-      margin-top: 10px;
+      margin-top: 12px;
       margin-bottom: 0;
       text-transform: capitalize;
+    }
+  }
+  
+  .repo-go {
+    width:80px;
+    padding-right:5px;
+    
+    button {
+      margin:5px 5px 0 0;
+      //height: 40px;
+      padding: 0;
+      
     }
   }
 `
@@ -45,7 +65,7 @@ const ReporCard = (props) => {
 
   }
   return (
-    <ReporCardWrapper onClick={openRepoIssues}>
+    <ReporCardWrapper>
       <div className="repo-avatar">
         <img src={repo.owner.avatar_url} />
       </div>
@@ -53,6 +73,9 @@ const ReporCard = (props) => {
         <h1>{repo.name}</h1>
         {repo.open_issues_count > 0
         && <small>{repo.open_issues_count} open issues</small>}
+      </div>
+      <div className="repo-go">
+        <Button onClick={openRepoIssues} >Go ></Button>
       </div>
     </ReporCardWrapper>
   )

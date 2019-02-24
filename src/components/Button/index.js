@@ -17,6 +17,11 @@ const Button = styled.button`
   margin-top: 14px;
   border-radius: 8px;    
   box-shadow: 0 2px 6px rgba(77,92,113,.3); 
+  
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 6px 6px rgba(77,92,113,.3);
+  }
 `
 
 export default Button
