@@ -61,3 +61,9 @@ export function openIssues(repo) {
     }
   }
 }
+
+export function clearRepoSelected() {
+  return {
+    type: actions.ISSUES.RESET_REPO_SELECTED
+  }
+}

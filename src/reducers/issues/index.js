@@ -20,6 +20,13 @@ const IssuesReducer = (state = initialState, action) => {
           [id]: action.payload.issues,
         }
       }
+
+    case constants.ISSUES.RESET_REPO_SELECTED:
+      return {
+        ...state,
+        repoSelected: null,
+      }
+
     default:
       return state
   }

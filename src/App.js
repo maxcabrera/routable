@@ -25,7 +25,7 @@ const Dashboard = (props) => {
   if(user.authenticated && !repos.fetched) {
     reposActions.getRepos()
   }
-console.log('issues', issues)
+
   return (
     <div>
       <BreadCrumbs />
@@ -33,7 +33,7 @@ console.log('issues', issues)
       && <Repos repos={repos.repos} openIssues={issuesActions.openIssues}  />}
 
       {issues.repoSelected
-      && <RepoTitle title={issues.repoName} clearRepoSelection={()=>{ console.log('hola')}}/>}
+      && <RepoTitle title={issues.repoName} clearRepoSelection={issuesActions.clearRepoSelected}/>}
 
       <Issues/>
     </div>
