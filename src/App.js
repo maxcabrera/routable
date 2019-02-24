@@ -5,6 +5,7 @@ import LoginForm from './components/LoginForm'
 import BreadCrumbs from './components/BreadCrumb'
 import Repos from './components/Repos'
 import Issues from './components/Issues'
+import RepoTitle from './components/RepoTitle'
 
 class App extends Component {
   render() {
@@ -14,6 +15,8 @@ class App extends Component {
         <LoginForm sendToken={() => {}}/>
         <BreadCrumbs />
         <Repos />
+        <RepoTitle title="Repo # 1"/>
+        <RepoTitle title="Repo # 2" clearRepoSelection={()=>{ console.log('hola')}}/>
         <Issues/>
       </div>
     );

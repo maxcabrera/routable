@@ -122,7 +122,7 @@ const IssueCard = (props) => {
         <small>Created: {createdAt}</small>
         <small>Last update: {updatedAt}</small>
         {!issue.assignee && <small>Issue not assigned</small>}
-        {issue.assignee && <small>Issue assigned to <a href={issue.assignee.html_url} target="_blank">{issue.assignee.login}</a> </small>}
+        {issue.assignee && <small>Issue assigned to <a href={issue.assignee.html_url} target="_blank" rel="noopener noreferrer">{issue.assignee.login}</a> </small>}
       </div>
       <div className="position-tool">
         <div className="triangle-up"

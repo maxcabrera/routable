@@ -32,7 +32,7 @@ Header.propTypes = {
   title: PropTypes.string,
 }
 
-Header. defaultProps = {
+Header.defaultProps = {
   title: 'Enter title for the header'
 }
 

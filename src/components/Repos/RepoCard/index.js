@@ -72,7 +72,7 @@ const ReporCard = (props) => {
   return (
     <ReporCardWrapper>
       <div className="repo-avatar">
-        <img src={repo.owner.avatar_url} />
+        <img src={repo.owner.avatar_url} alt="Owner of repo" />
       </div>
       <div className="repo-info">
         <h1>{repo.name}</h1>
