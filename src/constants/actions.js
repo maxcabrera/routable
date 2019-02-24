@@ -3,6 +3,9 @@ export default {
     ENTER_TOKEN: 'ENTER_TOKEN',
     SAVE_TOKEN: 'SAVE_TOKEN',
   },
+  REPOS: {
+    UPDATE_REPOS: 'UPDATE_REPOS',
+  },
   ERRORS: {
     SHOW_ERROR: 'SHOW_ERROR',
     HIDE_ERROR: 'HIDE_ERROR',

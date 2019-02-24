@@ -16,6 +16,7 @@ const ReposWrapper = styled.section`
 
 const Repos = (props) => {
   const { repos } = props
+  console.log('repos')
 
   const listOfRepos = repos.map(repo => {
     return <RepoCard key={repo.id} repo={repo}/>
@@ -45,45 +46,7 @@ Repos.propTypes = {
 }
 
 Repos.defaultProps = {
-  repos:[{
-    id: 150074623,
-    name: 'repo 1',
-    full_name: 'maxcabrera/repo1',
-    description: 'This is the description',
-    open_issues_count: 5,
-    html_url: 'https://github.com/creativetimofficial/argon-dashboard',
-    owner: {
-      login: 'creativetimofficial',
-      avatar_url: 'https://avatars2.githubusercontent.com/u/38554814?v=4',
-      type: 'Organization'
-    },
-  },
-    {
-      id: 15007323,
-      name: 'repo 2',
-      full_name: 'maxcabrera/repo2',
-      description: 'This is the description',
-      open_issues_count: 5,
-      html_url: 'https://github.com/creativetimofficial/argon-dashboard',
-      owner: {
-        login: 'creativetimofficial',
-        avatar_url: 'https://avatars3.githubusercontent.com/u/20172349?v=4',
-        type: 'Organization'
-      },
-    },
-    {
-      id: 15474623,
-      name: 'repo 3',
-      full_name: 'maxcabrera/repo3',
-      description: 'This is the description',
-      open_issues_count: 5,
-      html_url: 'https://github.com/creativetimofficial/argon-dashboard',
-      owner: {
-        login: 'creativetimofficial',
-        avatar_url: 'https://avatars3.githubusercontent.com/u/20172349?v=4',
-        type: 'Organization'
-      },
-    }]
+  repos:[]
 }
 
 export default Repos
