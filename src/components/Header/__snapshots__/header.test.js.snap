@@ -1,18 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header section Renders without crashing 1`] = `
-<section
-  className="sc-bdVaJa kOycRs"
->
-  <h1>
-    Issues Management System
-  </h1>
-  <small>
-    by Max Cabrera
-  </small>
-</section>
-`;
-
 exports[`Header section Snapshot test for Header 1`] = `
 <section
   className="sc-bdVaJa kOycRs"
