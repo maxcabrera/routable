@@ -15,15 +15,23 @@ import Issues from './components/Issues'
 import RepoTitle from './components/RepoTitle'
 
 const Dashboard = (props) => {
-  const { user, repos, reposActions, issuesActions } = props
+  const {
+    user,
+    repos,
+    reposActions,
+    issues,
+    issuesActions
+  } = props
   if(user.authenticated && !repos.fetched) {
     reposActions.getRepos()
   }
-
+console.log('issues', issues)
   return (
     <div>
       <BreadCrumbs />
-      <Repos repos={repos.repos} openIssues={issuesActions.openIssues}  />
+      {!issues.repoSelected
+      && <Repos repos={repos.repos} openIssues={issuesActions.openIssues}  />}
+
       <RepoTitle title="Repo # 1"/>
       <RepoTitle title="Repo # 2" clearRepoSelection={()=>{ console.log('hola')}}/>
       <Issues/>
@@ -55,6 +63,7 @@ function mapStateToProps(state) {
   return {
     user: state.user,
     repos: state.repos,
+    issues: state.issues,
   }
 }
 
