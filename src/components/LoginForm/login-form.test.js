@@ -1,6 +1,6 @@
 import LoginForm from './'
 
-describe("Login Form - Takes the Github Token", () => {
+describe('Login Form - Takes the Github Token', () => {
   let wrapper
   const mockCallback = jest.fn()
 
@@ -12,20 +12,20 @@ describe("Login Form - Takes the Github Token", () => {
     />)
   })
 
-  test("It renders a submit button", () => {
+  test('It renders a submit button', () => {
     expect(wrapper.find('button').length).toEqual(1)
   })
 
-  test("Calls the function on click", () => {
+  test('Calls the function on click', () => {
     wrapper.find('button').simulate('click')
     expect(mockCallback.mock.calls.length).toBe(1);
   })
 
-  test("It renders an input field", () => {
+  test('It renders an input field', () => {
     expect(wrapper.find('input').length).toEqual(1)
   })
 
-  test("It receives the correct props", () => {
+  test('It receives the correct props', () => {
     const props = wrapper.props()
     expect(props.tokenValue).toEqual('123')
     expect(props.updateInput).toBeDefined()
