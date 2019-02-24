@@ -12,8 +12,11 @@ const UserReducer = (state = initialState, action) => {
         ...state,
         token: action.payload,
       }
-    case actions.USER.SEND_TOKEN:
-      return state
+    case actions.USER.SAVE_TOKEN:
+      return {
+        ...state,
+        authenticated: true,
+      }
     default:
       return state
   }

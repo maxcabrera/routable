@@ -35,9 +35,7 @@ class App extends Component {
           && <LoginForm
               tokenValue={user.token}
               updateInput={userActions.enterToken}
-              sendToken={(e) => {
-                console.log('hello')
-              }} />}
+              sendToken={userActions.saveToken} />}
 
         {user.authenticated && <Dashboard />}
       </div>
