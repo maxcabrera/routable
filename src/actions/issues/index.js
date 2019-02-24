@@ -67,3 +67,7 @@ export function clearRepoSelected() {
     type: actions.ISSUES.RESET_REPO_SELECTED
   }
 }
+
+export function moveIssueUp(){
+
+}

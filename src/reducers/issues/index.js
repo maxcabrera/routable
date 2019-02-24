@@ -27,6 +27,16 @@ const IssuesReducer = (state = initialState, action) => {
         repoSelected: null,
       }
 
+    case constants.ISSUES.MOVE_ISSUE_UP:
+    case constants.ISSUES.MOVE_ISSUE_DOWN:
+      return {
+        ...state,
+        issues: {
+          ...state.issues,
+          [action.payload.repoId]: action.payload.issues
+        }
+      }
+
     default:
       return state
   }

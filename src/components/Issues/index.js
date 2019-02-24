@@ -15,8 +15,8 @@ const IssuesWrapper = styled.section`
 const Issues = (props) => {
   const { issues } = props
 
-  const listOfIssues = issues.map(issue => {
-    return <IssueCard key={issue.id} issue={issue}/>
+  const listOfIssues = issues.map((issue, index) => {
+    return <IssueCard key={issue.id} position={index + 1} issue={issue}/>
   })
 
   return (

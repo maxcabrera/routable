@@ -99,13 +99,19 @@ const IssueCardWrapper = styled.section`
       border-top: 20px solid #3056ba;
     }
     
+    .repo-avatar {
+      span {
+        margin-top: 0;
+      }
+    }
+    
   }
   
    
 `
 
 const IssueCard = (props) => {
-  const { issue, moveUp, moveDown } = props
+  const { issue, moveUp, moveDown, position } = props
 
   let createdAt = issue.created_at
   let updatedAt = issue.updated_at
@@ -113,7 +119,7 @@ const IssueCard = (props) => {
   return (
     <IssueCardWrapper>
       <div className="repo-avatar">
-        <span>{issue.number}</span>
+        <span>{position}</span>
         {issue.assignee
         && <img src={issue.assignee.avatar_url} alt={`Issue assigned to ${issue.assignee.login}`} />}
       </div>
