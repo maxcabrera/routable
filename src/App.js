@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header'
 import LoginForm from './components/LoginForm'
 import BreadCrumbs from './components/BreadCrumb'
+import Repos from './components/Repos'
 
 class App extends Component {
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
         <Header title="Issues Management System" />
         <LoginForm sendToken={() => {}}/>
         <BreadCrumbs />
+        <Repos />
       </div>
     );
   }
