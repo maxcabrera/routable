@@ -54,7 +54,7 @@ Repos.defaultProps = {
     html_url: 'https://github.com/creativetimofficial/argon-dashboard',
     owner: {
       login: 'creativetimofficial',
-      avatar_url: 'https://avatars3.githubusercontent.com/u/20172349?v=4',
+      avatar_url: 'https://avatars2.githubusercontent.com/u/38554814?v=4',
       type: 'Organization'
     },
   },

@@ -4,6 +4,7 @@ import Header from './components/Header'
 import LoginForm from './components/LoginForm'
 import BreadCrumbs from './components/BreadCrumb'
 import Repos from './components/Repos'
+import Issues from './components/Issues'
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
         <LoginForm sendToken={() => {}}/>
         <BreadCrumbs />
         <Repos />
+        <Issues/>
       </div>
     );
   }
