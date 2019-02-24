@@ -2,7 +2,7 @@
 
 exports[`Button Component Snapshot test for Header 1`] = `
 <button
-  className="sc-bdVaJa cOBoFD"
+  className="sc-bdVaJa bliGMn"
 >
   Click me
 </button>
